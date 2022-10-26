@@ -8,43 +8,66 @@ import { Ionicons } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
 
-export const HomeTab = () => {
+const HomeTab = () => {
+    
     return (
-        <>
-            <Tab.Navigator
-                initialRouteName="Inicio"
-                screenOptions={{
-                    tabBarActiveTintColor: 'black',
-                    tabBarActiveBackgroundColor: '#7fff00',
-                    tabBarInactiveTintColor: 'black',
-                    headerShown: false
-                }}
-            >
-                <Tab.Screen name='Inicio' component={InicioSesion} options={{
-                    tabBarStyle: { display: 'none' },
-                    title: 'Incio sesion', tabBarIcon: ({ color, size }) => (
-                        <Ionicons name='home' color={color} size={30} />
-                    )
-                }} />
+      <>
+        {/* Imagen del banco */}
+        <View style={{ flex: 0.4, alignItems: "center" }}>
+          <View>
+            <Image
+              source={require("../Style/bancoBogota.png")}
+              style={{ width: 800, height: 150 }}
+            />
+          </View>
+        </View>
 
-                <Tab.Screen name='Cuentas' component={Cuentas}
-                    options={{
-                        title: 'Cuenta', tabBarIcon: ({ color, size}) => (
-                            <Ionicons name='key' color={color} size={30}/>
-                        )
-                    }}
-                />
+        {/* Menu de navegacion */}
+        <Tab.Navigator
+          initialRouteName="Inicio"
+          screenOptions={{
+            tabBarActiveTintColor: "black",
+            tabBarActiveBackgroundColor: "#7fff00",
+            tabBarInactiveTintColor: "black",
+            headerShown: false,
+          }}
+        >
+          <Tab.Screen
+            name="Inicio"
+            component={InicioSesion}
+            options={{
+              tabBarStyle: { display: "none" }, //Para no mostrar el menu
+              title: "Incio sesion",
+              tabBarIcon: ({ color, size }) => (
+                <Ionicons name="home" color={color} size={30} />
+              ),
+            }}
+          />
 
-                <Tab.Screen name='Movimientos' component={Movimientos}
-                    options={{
-                        title: 'Movimientos', tabBarIcon: ({ color, size}) => (
-                            <Ionicons name='cash' color={color} size={30}/>
-                        )
-                    }}
-                />              
-            </Tab.Navigator>
-        </>
-    )
+          <Tab.Screen
+            name="Cuentas"
+            component={Cuentas}
+            options={{
+              title: "Cuenta",
+              tabBarIcon: ({ color, size }) => (
+                <Ionicons name="key" color={color} size={30} />
+              ),
+            }}
+          />
+
+          <Tab.Screen
+            name="Movimientos"
+            component={Movimientos}
+            options={{
+              title: "Movimientos",
+              tabBarIcon: ({ color, size }) => (
+                <Ionicons name="cash" color={color} size={30} />
+              ),
+            }}
+          />
+        </Tab.Navigator>
+      </>
+    );
 }
 
 export default HomeTab;
