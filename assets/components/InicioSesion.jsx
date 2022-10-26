@@ -5,20 +5,21 @@ import { Children, useState } from 'react';
 export const InicioSesion = ({ navigation }) => {
 
 
-
-
-
-
-
     return (
         <View>
-            <TextInput
-                      
-                        onBlur={onBlur}
-                        onChangeText={onChange}
-                        value={value}
-                        placeholder="Ingrese usuario"
-                    />
+        
+          <TextInput
+            placeholder="Usuario"
+          />
+          <TextInput
+            placeholder="Rol"
+          />
+          <TextInput
+            placeholder="Contraseña"
+          />
+        
+
+       
             <TouchableOpacity style={{ backgroundColor: 'green', padding: 10, borderRadius: 10, marginTop: 80, width: 200 }}
                onPress={() => {
                    navigation.navigate('Cuentas')}}>

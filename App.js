@@ -12,7 +12,7 @@ export default function App() {
         <Stack.Screen
           name='Home'
           component={HomeTab}
-          options={{title: 'Inicio bancario'}}
+          options={{title: 'Sistema bancario'}}
         />
       </Stack.Navigator>
     </NavigationContainer>
